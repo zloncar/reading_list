@@ -7,11 +7,15 @@ class CreatingBooksTest < ActionDispatch::IntegrationTest
       'Content-Type' => 'application/json'
     }
 
-    book = json(response.body)
+    book = json(response.body)[:book]
     assert_equal book_url(book[:id]), response.location
     assert_equal Mime::JSON, response.content_type
     assert_equal 'Pragmatic Programmer', book[:title]
     assert_equal 5, book[:rating]
+    assert_equal 'Dave Thomas', book[:author]
+    assert_equal 1, book[:genre_id]
+    assert_equal 'Excellent ...', book[:review]
+    assert_equal '13123', book[:amazon_id]
     assert_equal 201, response.status
   end
 
@@ -31,7 +35,11 @@ class CreatingBooksTest < ActionDispatch::IntegrationTest
   def book_attributes
     {
         title: 'Pragmatic Programmer',
-        rating: 5
+        rating: 5,
+        author: 'Dave Thomas',
+        genre_id: 1,
+        review: 'Excellent ...',
+        amazon_id: '13123'
     }
   end
 end
