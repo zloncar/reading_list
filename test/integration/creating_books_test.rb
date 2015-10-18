@@ -34,12 +34,12 @@ class CreatingBooksTest < ActionDispatch::IntegrationTest
 
   def book_attributes
     {
-        title: 'Pragmatic Programmer',
-        rating: 5,
-        author: 'Dave Thomas',
-        genre_id: 1,
-        review: 'Excellent ...',
-        amazon_id: '13123'
+      title: 'Pragmatic Programmer',
+      rating: 5,
+      author: 'Dave Thomas',
+      genre_id: 1,
+      review: 'Excellent ...',
+      amazon_id: '13123'
     }
   end
 end
