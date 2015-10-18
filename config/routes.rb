@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :books, only: [:index, :create, :show]
+  resources :books
   resources :finished_books
 end
