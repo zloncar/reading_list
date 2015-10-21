@@ -24,13 +24,16 @@ module Api
       book.destroy!
       render nothing: true, status: 204
     end
-    # def show
-    #   book = Book.find(params[:id])
-    #   render json: book, status: 200
-    # end
+
+    def show
+      book = Book.find(params[:id])
+      render json: book, status: 200
+    end
 
     def book_params
-      params.require(:book).permit(:title, :rating, :author, :review, :genre_id, :amazon_id)
+      params.require(:book).permit(
+        :title, :rating, :author, :review, :genre_id, :amazon_id
+      )
     end
   end
 end
